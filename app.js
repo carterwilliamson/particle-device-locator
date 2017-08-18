@@ -134,7 +134,6 @@ app.post('/login', urlencodedParser, function(req, res) {
                         if (data.name.startsWith('hook-response/'+ config.event_name)) {
                             var device_id = data.name.split("/")[2];
                             data = JSON.parse(data.data);
-                            console.log(data);
 
                             var msg = JSON.stringify({
                                 id: device_id,
