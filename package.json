@@ -5,7 +5,6 @@
     "repository": "https://github.com/kwnevarez/particle-device-locator",
     "private": true,
     "scripts": {
-        "config": "./config.sh",
         "start": "node app.js",
         "deploy": "gcloud app deploy app.yaml"
     },
