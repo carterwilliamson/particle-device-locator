@@ -1,21 +1,21 @@
 # Introduction
-This example demonstrates how to visualize your Particle Photon, P1, and Electron locator results using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, Websockets, and the Particle Javascript API. 
+This example demonstrates how to visualize your Particle Photon, P1, and Electron locator results using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, Websockets, and the Particle Javascript API.
 
 ## Run Locally
 
 ### Setup
 
-You will need to supply a Google Maps Javascript API key in order for the example to work properly. Follow the instructions at [Maps Javascript API: Get API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Be sure to review and understand the terms of service. 
- 
+You will need to supply a Google Maps Javascript API key in order for the example to work properly. Follow the instructions at [Maps Javascript API: Get API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Be sure to review and understand the terms of service.
+
 Set the key as an environment variable `API_KEY=<YOUR_API_KEY>`. The code will inject the API key into the web page so the Maps JS library loads properly. This key is not secured so be sure to add referrer restrictions to your key. Consult [Best practices for securely using API keys](https://support.google.com/cloud/answer/6310037?hl=en) for more information.
 
-Heads up! This app will ask for permision to your location. It is attempting to center the map on your location. 
+Heads up! This app will ask for permission to your location. It is attempting to center the map on your location.
 
 ### Launch
 
-1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/). 
+1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/).
 
-1. Setup the gcloud tool. This provides authentication to Google Cloud APIs and services. Learn more from our [Quickstart](https://cloud.google.com/sdk/docs/quickstarts) guides. 
+1. Setup the gcloud tool. This provides authentication to Google Cloud APIs and services. Learn more from our [Quickstart](https://cloud.google.com/sdk/docs/quickstarts) guides.
 
         gcloud init
 
@@ -25,11 +25,19 @@ Heads up! This app will ask for permision to your location. It is attempting to 
 
 1. Clone this repo:
 
-        git clone https://github.com/kwnevarez/particle-device-locator
+        git clone https://github.com/carterwilliamson/particle-device-locator
 
 1. Install depedencies using `npm`:
 
         npm install
+
+1. If you didn't set your `API_KEY` environment variable before, do so now:
+
+        export API_KEY=<YOUR_API_KEY>
+
+1. You can also set a custom port using the `PORT` environment variable (default is 8080):
+
+        export PORT=<CUSTOM_PORT>
 
 1. Run the sample with `npm`:
 
