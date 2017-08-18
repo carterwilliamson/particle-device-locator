@@ -132,25 +132,20 @@ app.post('/login', urlencodedParser, function(req, res) {
                         // this is the event handler for particle events
                         // make sure we are only looking at the deviceLocator events
                         if (data.name.startsWith('hook-response/'+ config.event_name)) {
-                            var a = data.data.split(",");
-                            // convert strings to numbers: lat, lng, accuracy
-                            a[0] = parseFloat(a[0]);
-                            a[1] = parseFloat(a[1]);
-                            a[2] = parseInt(a[2]);
-                            // get he device id from the name of the event
                             var device_id = data.name.split("/")[2];
-                            // send the event to the client
+                            data = JSON.parse(data.data);
+                            console.log(data);
+
                             var msg = JSON.stringify({
                                 id: device_id,
                                 pub: data.published_at,
                                 pos: {
-                                    lat: a[0],
-                                    lng: a[1],
+                                    lat: data.location.lat,
+                                    lng: data.location.lng,
                                 },
-                                acc: a[2]
+                                acc: data.location.accuracy
                             });
                             websocket.send(msg);
-                            console.log(msg);
                         }
                     });
                     res.redirect('/map');
