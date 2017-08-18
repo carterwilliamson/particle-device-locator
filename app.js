@@ -33,8 +33,10 @@ const urlencodedParser = bodyParser.urlencoded({
 var websocket;
 const ws_port = '50051'; // https://cloud.google.com/shell/docs/limitations#outgoing_connections
 const ws_route = '/ws';
-const config_filename = './config.json'; // API keys go here
-const config = JSON.parse(fs.readFileSync(config_filename, 'utf8'));
+var config = {
+    event_name: "deviceLocator",
+    map_api_key: process.env.API_KEY
+}
 
 // In order to use websockets on App Engine, you need to connect directly to
 // application instance using the instance's public external IP. This IP can
