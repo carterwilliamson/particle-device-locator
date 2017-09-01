@@ -7,7 +7,7 @@ This example demonstrates how to visualize your Particle Photon, P1, and Electro
 
 You will need to supply a Google Maps Javascript API key in order for the example to work properly. Follow the instructions at [Maps Javascript API: Get API Key](https://developers.google.com/maps/documentation/javascript/get-api-key). Be sure to review and understand the terms of service.
 
-Set the key as an environment variable `API_KEY=<YOUR_API_KEY>`. The code will inject the API key into the web page so the Maps JS library loads properly. This key is not secured so be sure to add referrer restrictions to your key. Consult [Best practices for securely using API keys](https://support.google.com/cloud/answer/6310037?hl=en) for more information.
+Set the key in your config.json file. The code will inject the API key into the web page so the Maps JS library loads properly. This key is not secured so be sure to add referrer restrictions to your key. Consult [Best practices for securely using API keys](https://support.google.com/cloud/answer/6310037?hl=en) for more information.
 
 Heads up! This app will ask for permission to your location. It is attempting to center the map on your location.
 
@@ -30,10 +30,6 @@ Heads up! This app will ask for permission to your location. It is attempting to
 1. Install depedencies using `npm`:
 
         npm install
-
-1. If you didn't set your `API_KEY` environment variable before, do so now:
-
-        export API_KEY=<YOUR_API_KEY>
 
 1. You can also set a custom port using the `PORT` environment variable (default is 8080):
 
