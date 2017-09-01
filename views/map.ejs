@@ -94,8 +94,8 @@ html,body {
         var device_ids = [];
         var current_device;
         var websocket;
-        var fill_colors = [ 'red', 'orange', 'yellow', 'green',
-            'blue', 'indigo', 'violet', 'white', 'black'
+        var fill_colors = [ 'blue', 'orange', 'yellow', 'green',
+            'red', 'indigo', 'violet', 'white', 'black'
         ];
         
         function fit_map_to_devices() {
@@ -201,7 +201,7 @@ html,body {
                     position: pos,
                     map: map,
                     icon: {
-                        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW, // CIRCLE or BACKWARD_CLOSED_ARROW,
+                        path: google.maps.SymbolPath.CIRCLE, // CIRCLE or BACKWARD_CLOSED_ARROW,
                         fillColor: fc, // random color for each new device
                         fillOpacity: 1.0,
                         scale: 4.5,

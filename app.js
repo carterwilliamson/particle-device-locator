@@ -33,10 +33,7 @@ const urlencodedParser = bodyParser.urlencoded({
 var websocket;
 const ws_port = '50051'; // https://cloud.google.com/shell/docs/limitations#outgoing_connections
 const ws_route = '/ws';
-var config = {
-    event_name: "deviceLocator",
-    map_api_key: process.env.API_KEY
-}
+var config = require("./config.json");
 
 // In order to use websockets on App Engine, you need to connect directly to
 // application instance using the instance's public external IP. This IP can
@@ -135,16 +132,17 @@ app.post('/login', urlencodedParser, function(req, res) {
                         // make sure we are only looking at the deviceLocator events
                         if (data.name.startsWith('hook-response/'+ config.event_name)) {
                             var device_id = data.name.split("/")[2];
+                            var published_at = data.published_at;
                             data = JSON.parse(data.data);
 
                             var msg = JSON.stringify({
                                 id: device_id,
-                                pub: data.published_at,
+                                pub: published_at,
                                 pos: {
                                     lat: data.location.lat,
                                     lng: data.location.lng,
                                 },
-                                acc: data.location.accuracy
+                                acc: data.accuracy
                             });
                             websocket.send(msg);
                         }
